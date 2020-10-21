@@ -1,0 +1,320 @@
+#app{
+    width: 100%;
+}
+.color-red{
+    color: red;
+}
+.full-width{
+    width: 100%;
+}
+.float-right{
+    float: right;
+}
+.modal-buttons{
+    margin: 0px 6px;
+}
+float-left{
+    float: left;
+}
+.blue{
+    color: blue;
+}
+.orange{
+    color: orange;
+}
+.brown{
+    color: rgba(28, 141, 28, 0.822);
+}
+.hover-green:hover{
+    background-color: #0531171f;
+}
+table.table-upload-dar th,table.table-upload-dar td {
+    border: 1px solid #dee2e6;
+    font-size: 12px;
+}
+.bgg-gray{
+    background-color: #fbfbfb;
+}
+.hr-1{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 34px 0px;
+    border-top: 2px solid rgb(32, 201, 151);
+}
+
+/* custom shell table  */
+/* .custom-shell-table table {
+       table-layout: fixed;
+}
+
+.custom-shell-table  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+.custom-shell-table  th
+{
+    background-color:black;
+    color:white;
+    width: 95px;
+}
+
+}
+.custom-shell-table  td:first-child
+ {
+  background-color:grey;
+ } */
+ .rate-table table, .custom-shell-table table {
+    table-layout: fixed;
+}
+.custom-shell-table th{
+    width: 95px;
+}
+.rate-table th{
+    width: 45px;
+}
+.custom-shell-table th:first-child,.custom-shell-table td:first-child
+{
+    position: sticky;
+    left: 0px;
+    background: #ededed;
+    width: 321px;
+}
+.rate-table th:first-child, .rate-table td:first-child{
+    position: sticky;
+    left: 0px;
+    background: #ededed;
+    width: 321px;
+}
+@media (min-width: 1200px){
+    .container {
+        max-width: 99% !important;
+    }
+}
+.fl-right{
+    float: right;
+}
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
+.fa-18{
+    font-size: 18px;
+}
+.mg-top-23{
+    margin-top: 23px;
+}
+.width-100{
+    width: 100%;
+}
+.dmpi-dar-upload{
+    padding: 12px;
+    border: #dcd4d4 solid 2px;
+}
+.lb-dar{
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 16px;
+}
+.cust-pad{
+    padding: 7px 1px 1px 7px !important;
+}
+.orange{
+    color: orange;
+}
+.no-border{
+    border: none !important;
+}
+.bg-bl-tr{
+    background-color: #17a2b829;
+    color: #101010;
+}
+.width-overflow{
+    width: 100%;
+    overflow: auto;
+}
+.vertical-align-bottom{
+    vertical-align: bottom !important;
+}
+.report-nav i{
+    color: white;
+}
+/* bianca end  */
+
+/* NIQUE ADD ONS*/
+tr#element{
+    cursor: pointer;
+
+}
+
+tr#element:hover{
+    background-color: #F5B7B1 ;
+    cursor: pointer;
+
+}
+/* thead th { position: sticky; top: 0; background-color:white;} */
+.pre-scrollables {
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+  /* overlay styles, all needed */
+  #overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: none;
+  }
+  .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color:rgba(0,0,0,0.2); 
+}
+  /* END NIQUE ADD ONS*/
+
+  .btn-modal-lock{
+    float: right;
+    margin-top: 14px;
+    color: #853333 !important;
+  }
+  
+ .search-modal div.k-grid-content.k-auto-scrollable{
+    height: 361px;
+ }
+
+ .table-rate td{
+    padding: .1rem 0.5rem !important;
+ }
+.pagination .page-item.active .page-link{
+    background-color: #21a77f !important;
+    border-color: #21a77f !important;
+ }
+ .pagination .page-link, .pagination .page-link:hover{
+    color: #21a77f;
+ }
+ .margin-top-10{
+    margin: 10px 0px;
+ }
+ #addNewRate hr{
+     margin-top: 8px;
+     margin-bottom: 1px;
+ }
+ #addNewRate label{
+    margin-bottom: 0px;
+    font-weight: 500;
+ }
+ 
+ /* DAVE GLOBAL CSS */
+[bold] {
+    font-weight: bold;
+}
+[text-right] {
+    text-align: right;
+}
+.dave-template input {
+    height: 35px !important;
+}
+.dave-tbody {
+    display: block;
+    height: 160px;
+    overflow-y: scroll;
+}
+.tbody-160 {
+    display: block;
+    height: 160px;
+    overflow-y: scroll;
+}
+.modal-tbody{
+    height: 350px;
+}
+.dave-table tr {
+    cursor: pointer;
+    line-height: 10px;
+    min-height: 8px;
+    max-height: 15px;
+    height: 8px;
+}
+.dave-thead,
+.dave-tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* even columns width , fix width of table too*/
+    border-bottom: 1px solid grey;
+}
+.dave-thead {
+    overflow-y: scroll;
+    display: block;
+    border-radius: 5px;
+    /* scrollbar is average 1em/16px width, remove it from thead width */
+}
+.dave-thead tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-bottom: 2px solid black;
+}
+.dave-table {
+    border: 1px solid black;
+    width: 100%;
+}
+.dave-table th {
+    font-size: 100%;
+}
+.dave-table td {
+    font-size: 85%;
+}
+.dave-thead::-webkit-scrollbar {
+    width: 1em;
+}
+
+.dave-thead::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.dave-thead::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+.dave-tbody::-webkit-scrollbar {
+    width: 1em;
+}
+
+.dave-tbody::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.dave-tbody::-webkit-scrollbar-thumb {
+    background-color: #20c997;
+    outline: 1px solid slategrey;
+}
+.close-modal {
+    cursor: pointer;
+}
+.modal-header-cus {
+    height: 40px;
+    padding: 5px;
+    background: #20c997;
+    border-radius: 5px;
+}
+.modal-header-cus button {
+    color: red;
+    font-size: 200%;
+    padding: 0 5px;
+}
+.modal-body-cus input {
+    height: 35px;
+    width: 100%;
+}
+.modal-body-cus {
+    padding: 10px;
+}
+.padding-top {
+    margin-top: 6px;
+}
+/* END DAVE CSS */

@@ -1,0 +1,609 @@
+<!-- variables  -->
+<?php 
+    $stTotal = 0;
+    $otTotal = 0;
+    $ndTotal = 0;
+    $ndotTotal = 0;
+    $hcTotal = 0;
+    $grandTotal = 0;
+?>
+
+<table>
+
+    <thead>
+    @foreach($companyData as $company)
+        <tr>
+            <th></th>
+            <th>{{$company->CompanyName}}</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>{{$company->CompanyAddress}}</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>{{$company->CompanyTINNo}}</th>
+        </tr>
+    @endforeach
+    <tr>
+        <th></th>
+        <th>Period Covered: {{$periodCoverage}}</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th>Date Transmitted:</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th>Transmittal #:</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th>To:</th>
+    </tr>
+
+    <!-- column header line 2  -->
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>ACCOUNT TO CHARGE</th>
+        <th></th>
+        <th>HOURS RENDERED</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>RATES</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>AMOUNT</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    <!-- column header line 1  -->
+    <tr>
+        <th>ITEM #</th>
+        <th>DOCUMENT DATE</th>
+        <th>SOA NO.</th>
+        <th>DATE TRANSMITTED TO OPERATION</th>
+        <th>DATE SIGNED BY SUPERVISOR</th>
+        <th>DATE SIGNED BY MANAGER</th>
+        <th>DATE RECEIVED DATA CONTROLLER</th>
+        <th>DATE RECEIVED BILLING CLERK</th>
+        <th>DATE RECEIVED BY DMPI ACCOUNTING</th>
+        <th>TRANSMITTAL NO.</th>
+        <th>ACTIVITY</th>
+        <th>FIELD</th>
+        <th>HAS/TONS</th>
+        <th>GL</th>
+        <th>CC</th>
+        <th>ST</th>
+        <th>OT</th>
+        <th>ND</th>
+        <th>NDOT</th>
+        <th>SHOL</th>
+        <th>SHOL-OT</th>
+        <th>SHOL-ND</th>
+        <th>SHOL-NDOT</th>
+        <th>SHRD</th>
+        <th>SHRD-OT</th>
+        <th>SHRD-ND</th>
+        <th>SHRD-NDOT</th>
+        <th>RHOL</th>
+        <th>RHOL-OT</th>
+        <th>RHOL-ND</th>
+        <th>RHOL-NDOT</th>
+        <th>RHSH</th>
+        <th>RHSH-OT</th>
+        <th>RHSH-ND</th>
+        <th>RHSH-NDOT</th>
+        <th>ST</th>
+        <th>OT</th>
+        <th>ND</th>
+        <th>NDOT</th>
+        <th>SHOL</th>
+        <th>SHOL-OT</th>
+        <th>SHOL-ND</th>
+        <th>SHOL-NDOT</th>
+        <th>SHRD</th>
+        <th>SHRD-OT</th>
+        <th>SHRD-ND</th>
+        <th>SHRD-NDOT</th>
+        <th>RHOL</th>
+        <th>RHOL-OT</th>
+        <th>RHOL-ND</th>
+        <th>RHOL-NDOT</th>
+        <th>RHSH</th>
+        <th>RHSH-OT</th>
+        <th>RHSH-ND</th>
+        <th>RHSH-NDOT</th>
+        <th>ST</th>
+        <th>OT</th>
+        <th>ND</th>
+        <th>NDOT</th>
+        <th>TOTAL</th>
+        <th>HC</th>
+        <th>REMARKS</th>
+        <th>DEPARTMENT</th>
+        <th>GSMPC SOA N0.</th>
+        <th>ST</th>
+        <th>OT</th>
+        <th>ND</th>
+        <th>NDOT</th>
+        <th>HC</th>
+        <th>TOTAL</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <!-- Body Data -->
+    @foreach($reportData as $a)
+    <?php 
+        $stTotal = $stTotal + $a->gt_st;
+        $otTotal = $otTotal + $a->gt_ot;
+        $ndTotal = $ndTotal + $a->gt_nd;
+        $ndotTotal = $ndotTotal + $a->gt_ndot;
+        $hcTotal = $hcTotal + $a->gt_hc;
+        $grandTotal = $grandTotal + $a->grand_total;
+    ?>
+
+        <tr>
+            <td>{{$a->item}}</td>
+            <td>{{$a->soaDate}}</td>
+            <td>{{$a->soaNumber}}</td>
+            <td>{{$a->dateTransmittedToOperation}}</td>
+            <td>{{$a->dateSignedBySupervisor}}</td>
+            <td>{{$a->dateSignedByManager}}</td>
+            <td>{{$a->dateReceivedByDataController}}</td>
+            <td>{{$a->dateReceivedByBillingClerk}}</td>
+            <td>{{$a->DateReceivedByDmpiAccount}}</td>
+            <td>{{$a->TransmittalNumber}}</td>
+            <td>{{$a->activity}}</td>
+            <td>{{$a->field}}</td>
+            <td>{{$a->accomplished}}</td>
+            <td>{{$a->gl}}</td>
+            <td>{{$a->cc}}</td>
+            <td>{{$a->rdst}}</td>
+            <td>{{$a->rdot}}</td>
+            <td>{{$a->rdnd}}</td>
+            <td>{{$a->rdndot}}</td>
+            <td>{{$a->sholst}}</td>
+            <td>{{$a->sholot}}</td>
+            <td>{{$a->sholnd}}</td>
+            <td>{{$a->sholndot}}</td>
+            <td>{{$a->shrdst}}</td>
+            <td>{{$a->shrdot}}</td>
+            <td>{{$a->shrdnd}}</td>
+            <td>{{$a->shrdndot}}</td>
+            <td>{{$a->rholst}}</td>
+            <td>{{$a->rholot}}</td>
+            <td>{{$a->rholnd}}</td>
+            <td>{{$a->rholndot}}</td>
+            <td>{{$a->rhrdst}}</td>
+            <td>{{$a->rhrdot}}</td>
+            <td>{{$a->rhrdnd}}</td>
+            <td>{{$a->rhrdndot}}</td>
+            <td>{{$a->rd_st}}</td>
+            <td>{{$a->rd_ot}}</td>
+            <td>{{$a->rd_nd}}</td>
+            <td>{{$a->rd_ndot}}</td>
+            <td>{{$a->shol_st}}</td>
+            <td>{{$a->shol_ot}}</td>
+            <td>{{$a->shol_nd}}</td>
+            <td>{{$a->shol_ndot}}</td>
+            <td>{{$a->shrd_st}}</td>
+            <td>{{$a->shrd_ot}}</td>
+            <td>{{$a->shrd_nd}}</td>
+            <td>{{$a->shrd_ndot}}</td>
+            <td>{{$a->rhol_st}}</td>
+            <td>{{$a->rhol_ot}}</td>
+            <td>{{$a->rhol_nd}}</td>
+            <td>{{$a->rhol_ndot}}</td>
+            <td>{{$a->rhrd_st}}</td>
+            <td>{{$a->rhrd_ot}}</td>
+            <td>{{$a->rhrd_nd}}</td>
+            <td>{{$a->rhrd_ndot}}</td>
+            <td>{{$a->totalst}}</td>
+            <td>{{$a->totalot}}</td>
+            <td>{{$a->totalnd}}</td>
+            <td>{{$a->totalndot}}</td>
+            <td>{{$a->totalAmt}}</td>
+            <td>{{$a->headCount}}</td>
+            <td>{{$a->remarks}}</td>
+            <td>{{$a->Location}}</td>
+            <td>{{$a->GSMPC_SOA}}</td>
+            <td>{{$a->gt_st}}</td>
+            <td>{{$a->gt_ot}}</td>
+            <td>{{$a->gt_nd}}</td>
+            <td>{{$a->gt_ndot}}</td>
+            <td>{{$a->gt_hc}}</td>
+            <td>{{$a->grand_total}}</td>
+        </tr>
+    @endforeach
+
+    <!-- signatories data  -->
+    <!-- Just empty spaces :( -->
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{$stTotal}}</td>
+        <td>{{$otTotal}}</td>
+        <td>{{$ndTotal}}</td>
+        <td>{{$ndotTotal}}</td>
+        <td>{{$hcTotal}}</td>
+        <td>{{$grandTotal}}</td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+
+    <!-- Prepared By and Approved By  -->
+
+    <tr>
+        <th></th>
+        <th>Prepared By:</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Checked By</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Approved By</th>
+    </tr>
+
+    <tr></tr>
+
+    <tr>
+        <th></th>
+        <th>{{$preparedBy}}</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>{{$checkedBy}}</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>{{$approvedBy}}</th>
+    </tr>
+
+    <tr>
+        <th></th>
+        <th>{{$preparedPos}}</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>{{$checkedPos}}</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>{{$approvedPos}}</th>
+    </tr>
+    
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+
+    <tr>
+        <th></th>
+        <th>Received By:</th>
+    </tr>
+
+    <tr></tr>
+
+    <tr>
+        <th></th>
+        <th>{{$receivedBy}}</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th>{{$receivedPos}}</th>
+    </tr>
+    
+    <tr></tr>
+
+    </tbody>
+</table>
